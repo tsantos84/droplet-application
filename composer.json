@@ -1,0 +1,25 @@
+{
+  "name": "tsantos/droplet-application",
+  "type": "project",
+  "description": "A skeleton for Droplet Framework application",
+  "keywords": ["php","framework", "MVC"],
+  "homepage": "https://github.com/tsantos84/droplet-application",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Tales santos",
+      "email": "tales.augusto.santos@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "tsantos/droplet-framework": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src"
+    }
+  }
+}
