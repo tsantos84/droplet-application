@@ -15,6 +15,10 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('welcome.html.php');
+        $rootDir = $this->container['app.root_dir'];
+
+        return $this->render('default/index.html.php', [
+            'root_dir' => $rootDir
+        ]);
     }
 }

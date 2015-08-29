@@ -3,6 +3,7 @@
 use Framework\Application;
 use Framework\Droplet\Core\KernelDroplet;
 use Framework\Droplet\Core\RoutingDroplet;
+use Framework\Droplet\Core\SessionDroplet;
 use Framework\Droplet\Core\TemplatingDroplet;
 
 /**
@@ -18,6 +19,7 @@ class MyApp extends Application
         $this->registerDroplet(new KernelDroplet());
         $this->registerDroplet(new RoutingDroplet());
         $this->registerDroplet(new TemplatingDroplet());
+        $this->registerDroplet(new SessionDroplet());
     }
 
 }
