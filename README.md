@@ -4,7 +4,7 @@ README
 What is Droplet Application?
 --------------------------
 
-Droplet Application is a skeleton to start your writing your web page based on [Droplet Framework][1].
+Droplet Application is a skeleton to start writing your web application based on [Droplet Framework][1].
 
 
 Installation
