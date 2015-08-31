@@ -5,7 +5,7 @@ return [
     // templating configuration
     'templating' => [
         'paths' => [
-            __DIR__ . '/../views'
+            __DIR__ . '/../resources/views'
         ]
     ],
 
