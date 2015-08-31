@@ -1,12 +1,10 @@
-Configuration
-=============
+# Configuration
 
 Droplet Application has a simple way to configure how your droplets will work. Each root key on configuration file
 has all the configuration expected by the droplets registered on the application. An exception will be thrown if
 the configuration file have a non registered droplet.
 
-Creating Environment Configuration
-----------------------------------
+# Creating Environment Configuration
 
 By default, the application is shipped with one file configuration (`/app/config/config.php`) which has the minimum options
 necessary to run your application. But you can create different front controllers and load different environments configurations.
@@ -86,4 +84,23 @@ return [
         ...
     ]
 ];
+```
+
+## Changing file configuration location
+
+Droplet Framework will try to load the configuration based on the environment defined on your front controller. So, for `dev` environment the `/app/config/config_dev.php` file will be searched, but, if no environment is defined, the file `/app/config/config.php` will be searched instead. If this approach does not fits your needs, you can easily override the method `Application::getFileConfigurationName()` and change the default location:
+
+```PHP
+
+use Framework\Application;
+
+class MyApp extends Application
+{
+    public function getFileConfigurationName()
+    {
+        // The FileLocator is configured to search files on application root directory, 
+        // which is by default /app
+        return sprintf('../src/Resources/config/config_%s.php', $this->getEnvironment());
+    }
+}
 ```
