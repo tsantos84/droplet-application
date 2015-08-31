@@ -53,8 +53,7 @@ And your template will looks like:
 
 ## Helpers
 
-By default, the template engine do not more than render templates and return its content. To add extra functionality to 
-template engine you can register `Helpers` and use them inside your templates.
+By default, the template engine does not do much more than render templates and return its content. To add extra functionality to template engine you can register Helpers and use them inside your templates.
 
 ### SlotsHelper
 
@@ -83,8 +82,7 @@ return [
 
 ## More Information
 
-More information about the template engine can be founded on its [official page][1]. In there you can find how to [escape 
-output variables][3] to prevent XSS attacks, [include other templates][4] and more. 
+More information about the template engine can be founded on its [official page][1]. In there you can find how to [escape output][3] to prevent XSS attacks, [include other templates][4] and more. 
 
 [1]: http://symfony.com/doc/current/components/templating/introduction.html
 [2]: http://symfony.com/doc/current/components/templating/helpers/slotshelper.html
