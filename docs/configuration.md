@@ -91,6 +91,7 @@ return [
 Droplet Framework will try to load the configuration based on the environment defined on your front controller. So, for `dev` environment the `/app/config/config_dev.php` file will be searched, but, if no environment is defined, the file `/app/config/config.php` will be searched instead. If this approach does not fits your needs, you can easily override the method `Application::getFileConfigurationName()` and change the default location:
 
 ```PHP
+# /app/MyApp.php
 
 use Framework\Application;
 
