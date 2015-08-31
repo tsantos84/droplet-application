@@ -62,8 +62,7 @@ The SlotsHelper provide a simple way to reuse some HTML fragments like `headers`
 
 ## Global Variables
 
-Sometimes you need to pass variables to all templates. You can accomplish this by setting the `globals` option on 
-your configuration file:
+Sometimes you need to variables that must be accessed from all of your templates. You can accomplish this by setting the `globals` option on your configuration file:
 
 ```PHP
 # /app/config/config.php
