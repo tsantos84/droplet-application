@@ -106,7 +106,9 @@ class DefaultController extends Controller
 
 ## Defining Controllers as a Service
 
-All the previously methods to access the services have a bad practice: the controllers are strongly dependents of the service container. For small projects this is not a problem, but in therms of scalability and portability you can experience some issues by using this approach. Supose you want to change the framework to run your application (we hope this is not your case), naturaly others framework will use other service container systems, so you will need to refactor all your controllers and adapt them to use the new service container. Can you see the problem? "Yes, I can see. How can I void this?" Answer: defining your controllers as a service. To acomplish this you need to register a custom droplet on the application and attach your controller with its all dependencies on service container:
+All the previously methods to access the services have a bad practice: the controllers are strongly dependents of the service container. For small projects this is not a problem, but in therms of scalability and portability you can experience some issues by using this approach. Supose you want to change the framework to run your application (we hope this is not your case), naturaly others framework will use other service container systems, so you will need to refactor all your controllers and adapt them to use the new service container. Can you see the problem? "Yes, I can see. How can I void this?" Answer: defining your controllers as a service. To acomplish this you need to execute four little steps:
+
+### 1. Create a custom droplet
 
 ```PHP
 # /src/App/Droplet/AppDroplet
@@ -135,7 +137,9 @@ class AppDroplet extends AbstractDroplet
 }
 ```
 
-And now you can register the newlly droplet to your application:
+The `$c['templating']` is the reference to templating engine defined by TemplatingDroplet.
+
+### 2. Register the droplet
 
 ```PHP
 # /app/MyApp
@@ -153,7 +157,7 @@ class MyApp extends Application
 }
 ```
 
-After this little configuration your `DefaultController` is much thin and use only it really need to build the response:
+### 3. Refactor the controller to be consctructed with its dependencies
 
 ```PHP
 # /src/App/Controller
@@ -183,7 +187,7 @@ class DefaultController
 }
 ```
 
-Almost there! With your controller defined as a service, you need to tell the router to use the service name instead of the FQN class:
+### 4. Configure the route to use the service
 
 ```PHP
 # /app/config/config.php
@@ -201,5 +205,9 @@ return [
     ]
 ];
 ```
+
+With the `@` notation you are telling to the controller resolver that your controller lives on service container and do not need to be constructed by the resolver.
+
+We strongly recommend that you define your controller as a service. You will be benefit by the power of OOP!
 
 [1]: http://php.net/manual/pt_BR/language.types.callable.php
