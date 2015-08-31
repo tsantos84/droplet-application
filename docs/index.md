@@ -29,7 +29,7 @@ be covered in subsequent sections of the documentation.
 Running the Application
 -----------------------
 
-Running your application after installing it is much easy. Just start the PHP built-in server and point
+Running your application after installing is much easy. Just start the PHP built-in server and point
 your browser to `http://localhost:8000`:
 
     $ php -S localhost:8000 -s web
