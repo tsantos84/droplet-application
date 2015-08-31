@@ -1,8 +1,6 @@
 # Templating
 
-Droplet Framework ships with TemplatingDroplet that configures the [Symfony Templating Component][1] to run with your 
-application. 
-
+Droplet Framework ships with TemplatingDroplet that integrates the [Symfony Templating Component][1] to the application. 
 
 ## Configuration
 
@@ -18,7 +16,7 @@ return [
     'templating' => [
         'paths' => [
             __DIR__ . '/../resources/views',
-            __DIR__ . '/../../src/App/Resources/views
+            __DIR__ . '/../../src/App/Resources/views'
         ]
     ]
     ...
@@ -28,12 +26,12 @@ return [
 ## Rendering
 
 TemplatingDroplet will register in service container the engine responsible to render the `php` templates. Once you have
-access to the service container, you can render your brilliant template:
+access to the service container, you can render your brilliant templates:
 
 ```PHP
 <?php
 
-$container['templating']->render('index.html.php', [
+echo $container['templating']->render('index.html.php', [
     'username' => 'Tales Santos'
 ]);
 ```
