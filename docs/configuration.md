@@ -12,7 +12,7 @@ By default, the application is shipped with one file configuration (`/app/config
 necessary to run your application. But you can create different front controllers and load different environments configurations.
 
 ```PHP
-/web/index.php
+# /web/index.php
 <?php
 
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +22,7 @@ require '../app/MyApp.php';
 
 $request = Request::createFromGlobals();
 
-$app      = new MyApp('prod');
+$app      = new MyApp();
 $response = $app->handle($request);
 $response->send();
 ```
@@ -31,7 +31,7 @@ And to load the configuration for development environment, you only need to chan
 the `MyApp` class.
 
 ```PHP
-/web/index_dev.php
+# /web/index_dev.php
 <?php
 
 ...
@@ -42,12 +42,10 @@ $app = new MyApp('dev');
 
 ```
 
-The downside of this approach is that you need to have two files configuration (e.g: `config_prod.php` and `config_dev.php`).
-To avoid that kind of duplication, Droplet Framework has a file loader that can import other files defined on the configuration file
-loaded by application:
+The downside of this approach is that you will need two different files configuration (e.g: `config.php` and `config_dev.php`) and perhaps duplicate common droplet configurations. To avoid this situation, Droplet Framework has a efficient file loader that can import other files from the file loaded by the application:
 
 ```PHP
-/app/config/config_prod.php
+# /app/config/config_prod.php
 <?php
 
 return [
@@ -63,7 +61,7 @@ return [
 and the development will looks like:
 
 ```PHP
-/app/config/config_dev.php
+# /app/config/config_dev.php
 <?php
 
 return [
@@ -74,12 +72,10 @@ return [
 ];
 ```
 
-As you can see, the development environment imports all the configuration defined in production. The key `@import` is
-reserved and will be remove from the final configuration. You can also separate each droplet configuration on its own
-file configuration:
+As you can see, the development environment imports all configurations defined in production environment and all options defined on it will be overwritten by the options defined on `config_dev.php`. Is important to know that the key `@import` is reserved and will be removed from the final configuration after the configuration process. In that way, you can even split each droplet configuration on its own file configuration:
 
 ```PHP
-/app/config/config_prod.php
+# /app/config/config.php
 <?php
 
 return [
