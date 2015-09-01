@@ -1,5 +1,7 @@
 <?php
 
+use Framework\Droplet\Core\Routing\RouteCollectionBuilder;
+
 return [
 
     // templating configuration
@@ -11,11 +13,10 @@ return [
 
     // routing configuration
     'routing'    => [
-        'welcome' => [
-            'path'     => '/',
-            'defaults' => [
-                '_controller' => 'App\Controller\DefaultController::indexAction'
-            ]
+        'providers' => [
+            'main' => function (RouteCollectionBuilder $builder) {
+                $builder->get('/', 'App\\Controller\\DefaultController::indexAction')->assign('home');
+            }
         ]
     ]
 ];

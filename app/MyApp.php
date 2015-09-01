@@ -2,7 +2,7 @@
 
 use Framework\Application;
 use Framework\Droplet\Core\KernelDroplet;
-use Framework\Droplet\Core\RoutingDroplet;
+use Framework\Droplet\Core\Routing\RoutingDroplet;
 use Framework\Droplet\Core\SessionDroplet;
 use Framework\Droplet\Core\TemplatingDroplet;
 
