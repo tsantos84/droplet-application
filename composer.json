@@ -5,7 +5,7 @@
   "keywords": ["php","framework", "MVC"],
   "homepage": "https://github.com/tsantos84/droplet-application",
   "license": "MIT",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "authors": [
     {
       "name": "Tales santos",
