@@ -15,7 +15,7 @@
   ],
   "require": {
     "php": ">=5.4",
-    "tsantos/droplet-framework": "v1.*"
+    "tsantos/droplet-framework": "1.*"
   },
   "autoload": {
     "psr-4": {
