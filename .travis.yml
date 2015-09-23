@@ -14,7 +14,3 @@ matrix:
 before_script:
   - composer self-update
   - composer install -n
-
-script:
-  - vendor/bin/phpspec run --format=pretty
-  - vendor/bin/behat
